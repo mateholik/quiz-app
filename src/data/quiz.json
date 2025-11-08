@@ -1,35 +1,197 @@
 {
   "id": "fit-you",
-  "title": "Quick Quiz",
+  "title": "Get back in shape.",
   "description": "Help us understand your fitness goals",
+  "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png",
   "questions": [
     {
-      "id": "goal",
+      "id": "q1",
       "type": "single_choice",
       "title": "What is your primary goal?",
       "options": [
-        { "value": "lose_weight", "label": "Losing Weight" },
-        { "value": "improve_areas", "label": "Improve specific body areas" },
+        { "value": "lose_weight", "label": "Lose weight" },
+        {
+          "value": "improve_specific_body_areas",
+          "label": "Improve specific body areas"
+        },
         { "value": "gain_muscle", "label": "Gain Muscle" },
-        { "value": "habits", "label": "Develop Healthy Habits" }
+        { "value": "develop_healthy_habits", "label": "Develop Healthy Habits" }
       ]
     },
     {
-      "id": "areas",
+      "id": "q2",
       "type": "multi_choice",
       "title": "Select body areas you would like to improve:",
+      "text": "Select all that apply.",
       "options": [
-        { "value": "arms", "label": "Arms" },
-        { "value": "belly", "label": "Belly" },
-        { "value": "legs", "label": "Legs & Thighs" }
+        {
+          "value": "breast_form",
+          "label": "Breast form",
+          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+        },
+        {
+          "value": "arms",
+          "label": "Arms",
+          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+        },
+        {
+          "value": "belly",
+          "label": "Belly",
+          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+        },
+        {
+          "value": "buttocks",
+          "label": "Buttocks",
+          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+        },
+        {
+          "value": "legs_and_thighs",
+          "label": "Legs and Thighs",
+          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+        }
       ],
-      "visibleIf": [{ "questionId": "goal", "equals": "improve_areas" }]
+      "visibleIf": [{ "questionId": "q1", "equals": "lose_weight" }]
     },
     {
-      "id": "sleep",
-      "type": "number",
-      "title": "How many hours do you sleep per night?",
-      "validation": { "min": 0, "max": 12 }
+      "id": "q3",
+      "type": "single_choice",
+      "title": "Do you suffer from back pain?",
+      "options": [
+        { "value": "no", "label": "No" },
+        { "value": "yes", "label": "Yes" }
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "multi_choice",
+      "title": "Concerns you have faced after pregnancy:",
+      "text": "Select all that apply.",
+      "options": [
+        {
+          "value": "anxiety_or_depression",
+          "label": "Anxiety or depression"
+        },
+        {
+          "value": "face_skin_problems",
+          "label": "Face skin problems"
+        },
+        {
+          "value": "weak_hair_or_hair_loss",
+          "label": "Weak hair or hair loss"
+        },
+        {
+          "value": "weak_nails",
+          "label": "Weak nails"
+        },
+        {
+          "value": "loose_skin_or_strech_marks",
+          "label": "Loose skin or strech marks"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "single_choice",
+      "title": "How do you feel about excercising with your baby?",
+      "options": [
+        { "value": "i_would_love_to", "label": "I would love to!" },
+        { "value": "i_would_like_to_try", "label": "I would like to try" },
+        { "value": "i_am_better_on_my_own", "label": "I am better on my own" }
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "single_choice",
+      "title": "Do you suffer from DIASTASIS RECTI ?",
+      "text": "Diastasis recti is the partial or complete separation of the rectus abdominis, or “six-pack” muscles, which meet at the midline of your stomach.",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes",
+          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+        },
+        {
+          "value": "no",
+          "label": "No",
+          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "multi_choice",
+      "title": "Select type of workouts you like:",
+      "text": "Select all that apply.",
+      "options": [
+        {
+          "value": "flexibility",
+          "label": "Flexibility",
+          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+        },
+        {
+          "value": "aerobic",
+          "label": "Aerobic",
+          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+        },
+        {
+          "value": "strength",
+          "label": "Strength",
+          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+        },
+        {
+          "value": "others",
+          "label": "Others",
+          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+        },
+        {
+          "value": "i_dont_like_workouts",
+          "label": "I don’t like workouts",
+          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "type": "single_choice",
+      "title": "Are you currently breasfeeding?",
+      "text": "Diastasis recti is the partial or complete separation of the rectus abdominis, or “six-pack” muscles, which meet at the midline of your stomach.",
+      "options": [
+        { "value": "yes", "label": "Yes" },
+        { "value": "no", "label": "No" }
+      ]
+    },
+    {
+      "id": "q9",
+      "type": "info_section",
+      "title": "Did you know?",
+      "text": "Low impact exercises are completely safe during breastfeeding and do not affect the milk supply or taste.",
+      "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png",
+      "bottomText": "Keep in mind that it only takes 15 minutes of focused daily physical activity to give long-lasting results. <br> Let’s continue with creating your personalized meal plan portfolio!"
+    },
+    {
+      "id": "q10",
+      "type": "multi_choice",
+      "title": "What foods is your breasfed baby sensitive to?",
+      "text": "Select all that apply.",
+      "options": [
+        { "value": "lactose", "label": "Lactose" },
+        { "value": "eggs", "label": "Eggs" },
+        { "value": "nuts", "label": "Nuts" },
+        { "value": "soy", "label": "Soy" },
+        { "value": "gluten", "label": "Gluten" },
+        { "value": "fish", "label": "Fish" },
+        { "value": "shellfish", "label": "Shellfish" },
+        { "value": "none_of_the_above", "label": "None of the above" }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "input",
+      "title": "How young are you?"
     }
   ]
 }

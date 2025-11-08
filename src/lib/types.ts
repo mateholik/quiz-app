@@ -1,34 +1,52 @@
+import { QUESTION_TYPES } from "./consts";
+
 export type Quiz = {
   id: string;
   title: string;
-  description: string;
+  ctaText: string;
+  imageUrl: string;
+  description?: string;
   questions: Question[];
 };
 
 export type QuestionBase = {
   id: string;
   title: string;
-  text: string;
+  text?: string;
   visibleIf?: { questionId: string; equals: string | number | boolean }[];
 };
 
 export type SingleChoiceQuestion = QuestionBase & {
-  type: "single-choice";
-  options: { value: string; label: string }[];
+  type: typeof QUESTION_TYPES.SINGLE_CHOICE;
+  options: Answer[];
 };
 
 export type MultiChoiceQuestion = QuestionBase & {
-  type: "multi-choice";
-  options: { value: string; label: string }[];
+  type: typeof QUESTION_TYPES.MULTI_CHOICE;
+  options: Answer[];
 };
 
-export type NumberQuestion = QuestionBase & {
-  type: "number";
+export type InfoSection = QuestionBase & {
+  type: typeof QUESTION_TYPES.INFO_SECTION;
+  imageUrl?: string;
+  bottomText?: string;
+};
+
+export type InputQuestion = QuestionBase & {
+  type: typeof QUESTION_TYPES.INPUT;
+  placeholder?: string;
 };
 
 export type Question =
   | SingleChoiceQuestion
   | MultiChoiceQuestion
-  | NumberQuestion;
+  | InfoSection
+  | InputQuestion;
 
-export type Answers = Record<string, string | string[] | number | undefined>;
+export type Answer = {
+  value: string;
+  label: string;
+  imageUrl?: string;
+};
+
+export type QuestionType = (typeof QUESTION_TYPES)[keyof typeof QUESTION_TYPES];
