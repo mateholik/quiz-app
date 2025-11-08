@@ -1,3 +1,4 @@
+import { HTMLInputTypeAttribute } from "react";
 import { QUESTION_TYPES } from "./consts";
 
 export type Quiz = {
@@ -35,6 +36,7 @@ export type InfoSection = QuestionBase & {
 export type InputQuestion = QuestionBase & {
   type: typeof QUESTION_TYPES.INPUT;
   placeholder?: string;
+  inputType: HTMLInputTypeAttribute;
 };
 
 export type Question =
@@ -50,3 +52,8 @@ export type Answer = {
 };
 
 export type QuestionType = (typeof QUESTION_TYPES)[keyof typeof QUESTION_TYPES];
+
+export type StoreAnswers = Record<
+  string,
+  string | string[] | number | undefined
+>;

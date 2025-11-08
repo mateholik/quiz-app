@@ -2,7 +2,7 @@
   "id": "fit-you",
   "title": "Get back in shape.",
   "description": "Help us understand your fitness goals",
-  "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png",
+  "imageUrl": "/question-images/Illustration.png",
   "questions": [
     {
       "id": "q1",
@@ -27,30 +27,32 @@
         {
           "value": "breast_form",
           "label": "Breast form",
-          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+          "imageUrl": "/question-images/breast.png"
         },
         {
           "value": "arms",
           "label": "Arms",
-          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+          "imageUrl": "/question-images/arms.png"
         },
         {
           "value": "belly",
           "label": "Belly",
-          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+          "imageUrl": "/question-images/belly.png"
         },
         {
           "value": "buttocks",
           "label": "Buttocks",
-          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+          "imageUrl": "/question-images/buttocks.png"
         },
         {
           "value": "legs_and_thighs",
           "label": "Legs and Thighs",
-          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+          "imageUrl": "/question-images/legs.png"
         }
       ],
-      "visibleIf": [{ "questionId": "q1", "equals": "lose_weight" }]
+      "visibleIf": [
+        { "questionId": "q1", "equals": "improve_specific_body_areas" }
+      ]
     },
     {
       "id": "q3",
@@ -108,12 +110,12 @@
         {
           "value": "yes",
           "label": "Yes",
-          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+          "imageUrl": "/question-images/diastasis-normal.png"
         },
         {
           "value": "no",
           "label": "No",
-          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+          "imageUrl": "/question-images/diastasis-open.png"
         },
         {
           "value": "not_sure",
@@ -130,27 +132,27 @@
         {
           "value": "flexibility",
           "label": "Flexibility",
-          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+          "imageUrl": "/question-images/Flexibility.png"
         },
         {
           "value": "aerobic",
           "label": "Aerobic",
-          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+          "imageUrl": "/question-images/Aerobic.png"
         },
         {
           "value": "strength",
           "label": "Strength",
-          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+          "imageUrl": "/question-images/Strength.png"
         },
         {
           "value": "others",
           "label": "Others",
-          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+          "imageUrl": "/question-images/Others.png"
         },
         {
           "value": "i_dont_like_workouts",
           "label": "I don’t like workouts",
-          "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png"
+          "imageUrl": "/question-images/I don’t like workouts.png"
         }
       ]
     },
@@ -169,7 +171,7 @@
       "type": "info_section",
       "title": "Did you know?",
       "text": "Low impact exercises are completely safe during breastfeeding and do not affect the milk supply or taste.",
-      "imageUrl": "https://datalabel.com/wp-content/uploads/2022/03/placeholder-image-300x225-1.png",
+      "imageUrl": "/question-images/feeding.jpg",
       "bottomText": "Keep in mind that it only takes 15 minutes of focused daily physical activity to give long-lasting results. <br> Let’s continue with creating your personalized meal plan portfolio!"
     },
     {
@@ -178,20 +180,50 @@
       "title": "What foods is your breasfed baby sensitive to?",
       "text": "Select all that apply.",
       "options": [
-        { "value": "lactose", "label": "Lactose" },
-        { "value": "eggs", "label": "Eggs" },
-        { "value": "nuts", "label": "Nuts" },
-        { "value": "soy", "label": "Soy" },
-        { "value": "gluten", "label": "Gluten" },
-        { "value": "fish", "label": "Fish" },
-        { "value": "shellfish", "label": "Shellfish" },
+        {
+          "value": "lactose",
+          "label": "Lactose",
+          "imageUrl": "/question-images/milk.png"
+        },
+        {
+          "value": "eggs",
+          "label": "Eggs",
+          "imageUrl": "/question-images/egg.png"
+        },
+        {
+          "value": "nuts",
+          "label": "Nuts",
+          "imageUrl": "/question-images/nutts.png"
+        },
+        {
+          "value": "soy",
+          "label": "Soy",
+          "imageUrl": "/question-images/seedling.png"
+        },
+        {
+          "value": "gluten",
+          "label": "Gluten",
+          "imageUrl": "/question-images/croissant.png"
+        },
+        {
+          "value": "fish",
+          "label": "Fish",
+          "imageUrl": "/question-images/fish.png"
+        },
+        {
+          "value": "shellfish",
+          "label": "Shellfish",
+          "imageUrl": "/question-images/crab.png"
+        },
         { "value": "none_of_the_above", "label": "None of the above" }
       ]
     },
     {
       "id": "q11",
       "type": "input",
-      "title": "How young are you?"
+      "title": "How young are you?",
+      "inputType": "number",
+      "placeholder": "Age"
     }
   ]
 }

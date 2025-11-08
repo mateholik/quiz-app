@@ -1,5 +1,5 @@
 "use client";
-import QuestionRenderer from "@/components/QuestionRenderer";
+import QuestionTypesRenderer from "@/components/QuestionTypesRenderer";
 import { isVisible } from "@/lib/utils";
 
 import Link from "next/link";
@@ -37,25 +37,31 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
 
   return (
     <div>
-      <div className="m-4 bg-blue-900 p-4">
+      <div className="m-4 bg-blue-100 p-4">
         <div>Id: {currentQuestion?.id}</div>
         <div>Title: {currentQuestion?.title}</div>
         <div>Type: {currentQuestion?.type}</div>
       </div>
-      <div className="m-4 mx-4 flex items-center justify-between bg-amber-900 p-4">
+      <div className="m-4 p-4">
+        <QuestionTypesRenderer question={currentQuestion} />
+      </div>
+      <div className="m-4 flex flex-col gap-4">
         {previousQestionId && (
-          <div className="mt-8">
-            <Link href={`/quiz/${previousQestionId}`}>Back</Link>
-          </div>
+          <Link
+            className="w-full rounded-lg border bg-amber-100 p-4 text-center"
+            href={`/quiz/${previousQestionId}`}
+          >
+            Back
+          </Link>
         )}
         {nextQuestionId && (
-          <div className="mt-8">
-            <Link href={`/quiz/${nextQuestionId}`}>Next</Link>
-          </div>
+          <Link
+            className="w-full rounded-lg border bg-amber-100 p-4 text-center"
+            href={`/quiz/${nextQuestionId}`}
+          >
+            Next
+          </Link>
         )}
-      </div>
-      <div className="m-4 p-4">
-        <QuestionRenderer question={currentQuestion} />
       </div>
     </div>
   );
