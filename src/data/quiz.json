@@ -1,0 +1,35 @@
+{
+  "id": "fit-you",
+  "title": "Quick Quiz",
+  "description": "Help us understand your fitness goals",
+  "questions": [
+    {
+      "id": "goal",
+      "type": "single_choice",
+      "text": "What is your primary goal?",
+      "options": [
+        { "value": "lose_weight", "label": "Losing Weight" },
+        { "value": "improve_areas", "label": "Improve specific body areas" },
+        { "value": "gain_muscle", "label": "Gain Muscle" },
+        { "value": "habits", "label": "Develop Healthy Habits" }
+      ]
+    },
+    {
+      "id": "areas",
+      "type": "multi_choice",
+      "text": "Select body areas you would like to improve:",
+      "options": [
+        { "value": "arms", "label": "Arms" },
+        { "value": "belly", "label": "Belly" },
+        { "value": "legs", "label": "Legs & Thighs" }
+      ],
+      "visibleIf": [{ "questionId": "goal", "equals": "improve_areas" }]
+    },
+    {
+      "id": "sleep",
+      "type": "number",
+      "text": "How many hours do you sleep per night?",
+      "validation": { "min": 0, "max": 12 }
+    }
+  ]
+}
