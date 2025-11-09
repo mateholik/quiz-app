@@ -1,6 +1,7 @@
 type ButtonProps = {
-  handleOnClick: () => void;
+  handleOnClick?: () => void;
   children?: React.ReactNode;
+  type?: "button" | "submit" | "reset";
 };
 export default function Button({ children, handleOnClick }: ButtonProps) {
   return (

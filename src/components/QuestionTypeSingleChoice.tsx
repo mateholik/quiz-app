@@ -1,49 +1,34 @@
 "use client";
 
-import quizData from "@/data/quiz.json";
-import { SPECIAL_ROUTE_IDS } from "@/lib/consts";
-import { isVisible } from "@/lib/utils";
-import { NextQuestionId, Quiz, SingleChoiceQuestion } from "@/lib/types";
+import { NextQuestionId, SingleChoiceQuestion } from "@/lib/types";
 import useQuizStore from "@/store/quizStore";
 import Image from "next/image";
 import QuestionHeading from "./QuestionHeading";
-import { useRouter } from "next/navigation";
-import {
-  getCurrentQuestion,
-  getNextQuestionId,
-  getVisibleQuestions,
-} from "@/lib/quizService";
+import { notFound, useRouter } from "next/navigation";
+import { computeNextQuestionId } from "@/lib/quizService";
 
 type QuestionTypeSingleChoiceProps = {
   question: SingleChoiceQuestion;
-  nextQuestionId: NextQuestionId;
 };
 export default function QuestionTypeSingleChoice({
   question,
 }: QuestionTypeSingleChoiceProps) {
   const answers = useQuizStore((store) => store.answers);
   const setAnswers = useQuizStore((store) => store.setAnswers);
-  const currentAnswerInStore = answers[question.id];
-
   const router = useRouter();
+  const quizData = useQuizStore((store) => store.quizData);
 
-  const data = quizData as Quiz;
+  if (!quizData) notFound();
+
+  const currentAnswerInStore = answers[question.id];
 
   const handleOnClick = (optionValue: string) => {
     setAnswers(question.id, optionValue);
 
     const updatedAnswers = useQuizStore.getState().answers;
-    const visibleQuestions = getVisibleQuestions(data, updatedAnswers);
-    const { currentQuestionIndex } = getCurrentQuestion(
-      visibleQuestions,
-      question.id,
-    );
-    const computedNextId = getNextQuestionId(
-      visibleQuestions,
-      currentQuestionIndex,
-    );
+    const nextId = computeNextQuestionId(quizData, updatedAnswers, question.id);
 
-    router.push(`/quiz/${computedNextId}`);
+    router.push(`/quiz/${nextId}`);
   };
 
   return (

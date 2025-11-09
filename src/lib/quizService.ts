@@ -31,3 +31,21 @@ export function getPreviousQuestionId(
     ? visibleQuestions[currentQuestionIndex - 1].id
     : null;
 }
+
+export function computeNextQuestionId(
+  quizData: Quiz,
+  updatedAnswers: StoreAnswers,
+  questionId: NextQuestionId,
+) {
+  const visibleQuestions = getVisibleQuestions(quizData, updatedAnswers);
+  const { currentQuestionIndex } = getCurrentQuestion(
+    visibleQuestions,
+    questionId,
+  );
+  const computedNextId = getNextQuestionId(
+    visibleQuestions,
+    currentQuestionIndex,
+  );
+
+  return computedNextId;
+}

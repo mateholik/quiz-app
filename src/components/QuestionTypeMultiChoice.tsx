@@ -1,22 +1,25 @@
 "use client";
 
-import { MultiChoiceQuestion, NextQuestionId } from "@/lib/types";
+import { MultiChoiceQuestion } from "@/lib/types";
 import useQuizStore from "@/store/quizStore";
 import QuestionHeading from "./QuestionHeading";
 import Image from "next/image";
 import Button from "./Button";
-import { useRouter } from "next/navigation";
+import { notFound, useRouter } from "next/navigation";
+import { computeNextQuestionId } from "@/lib/quizService";
 
 type QuestionTypeMultiChoiceProps = {
   question: MultiChoiceQuestion;
-  nextQuestionId: NextQuestionId;
 };
 export default function QuestionTypeMultiChoice({
   question,
-  nextQuestionId,
 }: QuestionTypeMultiChoiceProps) {
   const answers = useQuizStore((store) => store.answers);
   const setAnswers = useQuizStore((store) => store.setAnswers);
+  const quizData = useQuizStore((store) => store.quizData);
+
+  if (!quizData) notFound();
+
   const currentAnswerInStore = answers[question.id];
 
   const router = useRouter();
@@ -33,7 +36,8 @@ export default function QuestionTypeMultiChoice({
   };
 
   const handleOnClick = () => {
-    router.push(nextQuestionId);
+    const nextId = computeNextQuestionId(quizData, answers, question.id);
+    router.push(`/quiz/${nextId}`);
   };
 
   return (
