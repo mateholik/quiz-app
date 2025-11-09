@@ -1,9 +1,20 @@
 import { SPECIAL_ROUTE_IDS } from "./consts";
 import { Quiz, StoreAnswers, Question, NextQuestionId } from "./types";
-import { isVisible } from "./utils";
 
 export function getVisibleQuestions(quizData: Quiz, answers: StoreAnswers) {
-  return quizData.questions.filter((q) => isVisible(q, answers));
+  return quizData.questions.filter((question) => {
+    if (!question.visibleIf || question.visibleIf.length === 0) return true;
+
+    return question.visibleIf.every((condition) => {
+      const answerFromStore = answers[condition.questionId];
+
+      if (Array.isArray(answerFromStore)) {
+        return answerFromStore.includes(String(condition.equals));
+      }
+
+      return answerFromStore === condition.equals;
+    });
+  });
 }
 
 export function getCurrentQuestion(visibleQuestions: Question[], id: string) {

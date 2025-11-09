@@ -5,6 +5,7 @@ import useQuizStore from "@/store/quizStore";
 import Image from "next/image";
 import QuestionHeading from "./QuestionHeading";
 import { useQuizNav } from "@/lib/hooks";
+import ButtonAnswer from "./ButtonAnswer";
 
 type QuestionTypeSingleChoiceProps = {
   question: SingleChoiceQuestion;
@@ -30,26 +31,33 @@ export default function QuestionTypeSingleChoice({
 
       <div className="space-y-3">
         {question.options.map((option) => (
-          <button
+          <ButtonAnswer
             key={option.value}
-            onClick={() => handleOnClick(option.value)}
-            className={`flex w-full items-center rounded-lg border p-4 ${
-              currentAnswerInStore === option.value
-                ? "border-purple-600"
-                : "border-gray-300"
-            }`}
+            handleOnClick={() => handleOnClick(option.value)}
+            selected={currentAnswerInStore === option.value}
           >
-            {option.imageUrl && (
+            <span className="flex items-center gap-4">
+              {option.imageUrl && (
+                <Image
+                  src={option.imageUrl}
+                  alt={option.label}
+                  width={56}
+                  height={56}
+                  className="size-14 object-contain"
+                />
+              )}
+              <span>{option.label}</span>
+            </span>
+            <span>
               <Image
-                src={option.imageUrl}
-                alt={option.label}
-                width={56}
-                height={56}
-                className="size-14 object-contain"
+                src="/icons/arrow.svg"
+                alt="arrow"
+                width={24}
+                height={24}
+                className="size-6 object-contain"
               />
-            )}
-            <span>{option.label}</span>
-          </button>
+            </span>
+          </ButtonAnswer>
         ))}
       </div>
     </section>

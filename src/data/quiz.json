@@ -3,6 +3,7 @@
   "title": "Get back in shape.",
   "description": "Help us understand your fitness goals",
   "imageUrl": "/question-images/Illustration.png",
+  "ctaText": "Start The Quiz",
   "questions": [
     {
       "id": "q1",
@@ -99,6 +100,10 @@
         { "value": "i_would_love_to", "label": "I would love to!" },
         { "value": "i_would_like_to_try", "label": "I would like to try" },
         { "value": "i_am_better_on_my_own", "label": "I am better on my own" }
+      ],
+      "visibleIf": [
+        { "questionId": "q4", "equals": "anxiety_or_depression" },
+        { "questionId": "q4", "equals": "loose_skin_or_strech_marks" }
       ]
     },
     {
@@ -224,7 +229,7 @@
       "title": "How young are you?",
       "inputType": "number",
       "placeholder": "Age",
-      "validation": { "min": 0, "max": 12, "required": true }
+      "validation": { "min": 10, "max": 20, "required": true }
     }
   ]
 }

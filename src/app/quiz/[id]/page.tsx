@@ -29,7 +29,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
         currentQuestionIndex={currentQuestionIndex + 1}
         totalQuestions={totalQuestions}
       />
-      <div className="container mx-auto px-4">
+      <div className="mx-auto mb-8 max-w-[400px] px-4">
         <QuestionTypesRenderer question={currentQuestion} />
       </div>
     </>

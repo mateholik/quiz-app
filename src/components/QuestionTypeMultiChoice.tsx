@@ -4,8 +4,10 @@ import { MultiChoiceQuestion } from "@/lib/types";
 import useQuizStore from "@/store/quizStore";
 import QuestionHeading from "./QuestionHeading";
 import Image from "next/image";
-import Button from "./Button";
+import ButtonCta from "./ButtonCta";
 import { useQuizNav } from "@/lib/hooks";
+import ButtonAnswer from "./ButtonAnswer";
+import { Span } from "next/dist/trace";
 
 type QuestionTypeMultiChoiceProps = {
   question: MultiChoiceQuestion;
@@ -40,30 +42,41 @@ export default function QuestionTypeMultiChoice({
 
       <div className="space-y-3">
         {question.options.map((option) => (
-          <button
+          <ButtonAnswer
             key={option.value}
-            onClick={() => toggleAnswer(option.value)}
-            className={`flex w-full items-center rounded-lg border p-4 ${
-              selected.includes(option.value)
-                ? "border-purple-600"
-                : "border-gray-300"
-            }`}
+            handleOnClick={() => toggleAnswer(option.value)}
+            selected={selected.includes(option.value)}
           >
-            {option.imageUrl && (
-              <Image
-                src={option.imageUrl}
-                alt={option.label}
-                width={56}
-                height={56}
-                className="size-14 object-contain"
-              />
-            )}
-            <span>{option.label}</span>
-          </button>
+            <span className="flex items-center gap-4">
+              {option.imageUrl && (
+                <Image
+                  src={option.imageUrl}
+                  alt={option.label}
+                  width={56}
+                  height={56}
+                  className="size-14 object-contain"
+                />
+              )}
+              <span>{option.label}</span>
+            </span>
+            <span className="size-6">
+              {selected.includes(option.value) ? (
+                <Image
+                  src="/icons/check.svg"
+                  alt="check"
+                  width={24}
+                  height={24}
+                  className="size-6 object-contain"
+                />
+              ) : (
+                <span className="inline-block size-6 rounded-full bg-gray-200"></span>
+              )}
+            </span>
+          </ButtonAnswer>
         ))}
       </div>
 
-      <Button handleOnClick={handleOnClick}>Continue</Button>
+      <ButtonCta handleOnClick={handleOnClick}>Continue</ButtonCta>
     </section>
   );
 }

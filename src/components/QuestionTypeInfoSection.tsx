@@ -4,7 +4,7 @@ import { InfoSection } from "@/lib/types";
 import Image from "next/image";
 import QuestionHeading from "./QuestionHeading";
 import parse from "html-react-parser";
-import Button from "./Button";
+import ButtonCta from "./ButtonCta";
 import { useQuizNav } from "@/lib/hooks";
 
 type QuestionTypeInfoSectionProps = {
@@ -32,9 +32,9 @@ export default function QuestionTypeInfoSection({
         />
       )}
       {question.bottomText && (
-        <p className="mt-4">{parse(question.bottomText)}</p>
+        <p className="mt-4 text-center">{parse(question.bottomText)}</p>
       )}
-      <Button handleOnClick={handleOnClick}>Continue</Button>
+      <ButtonCta handleOnClick={handleOnClick}>Continue</ButtonCta>
     </section>
   );
 }

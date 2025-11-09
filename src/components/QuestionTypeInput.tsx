@@ -1,7 +1,9 @@
+"use client";
+
 import { InputQuestion } from "@/lib/types";
 import useQuizStore from "@/store/quizStore";
 import QuestionHeading from "./QuestionHeading";
-import Button from "./Button";
+import ButtonCta from "./ButtonCta";
 import { ChangeEvent, useRef } from "react";
 import { useQuizNav } from "@/lib/hooks";
 
@@ -44,11 +46,11 @@ export default function QuestionTypeInput({
           type={question.inputType || "text"}
           value={currentAnswerInStore ?? ""}
           onChange={handleOnChange}
-          className="w-full rounded-lg border p-3"
+          className="w-full rounded-lg border p-4 focus-within:border focus-within:border-2 focus-within:border-[#AA00FF] focus:ring-0 focus:outline-none"
           placeholder={question.placeholder || "Enter a value"}
           {...question.validation}
         />
-        <Button type="submit">Continue</Button>
+        <ButtonCta type="submit">Continue</ButtonCta>
       </form>
     </section>
   );
