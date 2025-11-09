@@ -1,29 +1,40 @@
-import { SingleChoiceQuestion } from "@/lib/types";
+import { MultiChoiceQuestion } from "@/lib/types";
 import useQuizStore from "@/store/quizStore";
+import QuestionHeading from "./QuestionHeading";
 import Image from "next/image";
-import QuestionCommonHeading from "./QuestionCommonHeading";
 
-type QuestionSingleChoiceTypeProps = {
-  question: SingleChoiceQuestion;
+type QuestionTypeMultiChoiceProps = {
+  question: MultiChoiceQuestion;
 };
-export default function QuestionSingleChoiceType({
+export default function QuestionTypeMultiChoice({
   question,
-}: QuestionSingleChoiceTypeProps) {
+}: QuestionTypeMultiChoiceProps) {
   const answers = useQuizStore((store) => store.answers);
   const setAnswers = useQuizStore((store) => store.setAnswers);
   const currentAnswerInStore = answers[question.id];
 
+  const selected = Array.isArray(currentAnswerInStore)
+    ? currentAnswerInStore
+    : [];
+
+  const toggleAnswer = (value: string) => {
+    const updatedAnswers = selected.includes(value)
+      ? selected.filter((v) => v !== value)
+      : [...selected, value];
+    setAnswers(question.id, updatedAnswers);
+  };
+
   return (
     <section>
-      <QuestionCommonHeading title={question.title} text={question.text} />
+      <QuestionHeading title={question.title} text={question.text} />
 
       <div className="space-y-3">
         {question.options.map((option) => (
           <button
             key={option.value}
-            onClick={() => setAnswers(question.id, option.value)}
+            onClick={() => toggleAnswer(option.value)}
             className={`flex w-full items-center rounded-lg border p-4 ${
-              currentAnswerInStore === option.value
+              selected.includes(option.value)
                 ? "border-purple-600"
                 : "border-gray-300"
             }`}

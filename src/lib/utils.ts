@@ -6,10 +6,10 @@ export async function getData(): Promise<Quiz> {
   return data as Quiz;
 }
 
-export function isVisible(q: Question, answers: StoreAnswers): boolean {
-  if (!q.visibleIf || q.visibleIf.length === 0) return true;
-  return q.visibleIf.every((cond) => {
-    const val = answers[cond.questionId];
-    return val === cond.equals;
+export function isVisible(question: Question, answers: StoreAnswers): boolean {
+  if (!question.visibleIf || question.visibleIf.length === 0) return true;
+  return question.visibleIf.every((condition) => {
+    const answerIdFromStore = answers[condition.questionId];
+    return answerIdFromStore === condition.equals;
   });
 }

@@ -1,13 +1,10 @@
 import parse from "html-react-parser";
 
-type QuestionCommonHeadingProps = {
+type QuestionHeadingProps = {
   title: string;
   text?: string;
 };
-export default function QuestionCommonHeading({
-  title,
-  text,
-}: QuestionCommonHeadingProps) {
+export default function QuestionHeading({ title, text }: QuestionHeadingProps) {
   return (
     <div className="mb-8 space-y-4 text-center">
       <h1 className="text-2xl">{title}</h1>

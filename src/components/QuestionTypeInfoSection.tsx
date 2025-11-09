@@ -1,17 +1,17 @@
 import { InfoSection } from "@/lib/types";
 import Image from "next/image";
-import QuestionCommonHeading from "./QuestionCommonHeading";
+import QuestionHeading from "./QuestionHeading";
 import parse from "html-react-parser";
 
-type QuestionInfoSectionTypeProps = {
+type QuestionTypeInfoSectionProps = {
   question: InfoSection;
 };
-export default function QuestionInfoSectionType({
+export default function QuestionTypeInfoSection({
   question,
-}: QuestionInfoSectionTypeProps) {
+}: QuestionTypeInfoSectionProps) {
   return (
     <section>
-      <QuestionCommonHeading title={question.title} text={question.text} />
+      <QuestionHeading title={question.title} text={question.text} />
 
       {question.imageUrl && (
         <Image

@@ -1,20 +1,20 @@
 import { InputQuestion } from "@/lib/types";
 import useQuizStore from "@/store/quizStore";
-import QuestionCommonHeading from "./QuestionCommonHeading";
+import QuestionHeading from "./QuestionHeading";
 
-type QuestionInputTypeProps = {
+type QuestionTypeInputProps = {
   question: InputQuestion;
 };
-export default function QuestionInputType({
+export default function QuestionTypeInput({
   question,
-}: QuestionInputTypeProps) {
+}: QuestionTypeInputProps) {
   const answers = useQuizStore((store) => store.answers);
   const setAnswers = useQuizStore((store) => store.setAnswers);
   const currentAnswerInStore = answers[question.id];
 
   return (
     <section>
-      <QuestionCommonHeading title={question.title} text={question.text} />
+      <QuestionHeading title={question.title} text={question.text} />
       <input
         type={question.inputType || "text"}
         value={currentAnswerInStore ?? ""}

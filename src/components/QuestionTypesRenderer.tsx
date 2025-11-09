@@ -1,10 +1,10 @@
 "use client";
 import { QUESTION_TYPES } from "@/lib/consts";
 import { Question } from "@/lib/types";
-import QuestionSingleChoiceType from "./QuestionSingleChoiceType";
-import QuestionMultiChoiceType from "./QuestionMultiChoiceType";
-import QuestionInputType from "./QuestionInputType";
-import QuestionInfoSectionType from "./QuestionInfoSectionType";
+import QuestionTypeSingleChoice from "./QuestionTypeSingleChoice";
+import QuestionTypeMultiChoice from "./QuestionTypeMultiChoice";
+import QuestionTypeInput from "./QuestionTypeInput";
+import QuestionTypeInfoSection from "./QuestionTypeInfoSection";
 
 type QuestionTypesRendererProps = {
   question: Question;
@@ -15,17 +15,17 @@ export default function QuestionTypesRenderer({
 }: QuestionTypesRendererProps) {
   switch (question.type) {
     case QUESTION_TYPES.SINGLE_CHOICE:
-      return <QuestionSingleChoiceType question={question} />;
+      return <QuestionTypeSingleChoice question={question} />;
 
     case QUESTION_TYPES.MULTI_CHOICE: {
-      return <QuestionMultiChoiceType question={question} />;
+      return <QuestionTypeMultiChoice question={question} />;
     }
 
     case QUESTION_TYPES.INPUT:
-      return <QuestionInputType question={question} />;
+      return <QuestionTypeInput question={question} />;
 
     case QUESTION_TYPES.INFO_SECTION:
-      return <QuestionInfoSectionType question={question} />;
+      return <QuestionTypeInfoSection question={question} />;
 
     default:
       return <div>Unsupported question type</div>;
