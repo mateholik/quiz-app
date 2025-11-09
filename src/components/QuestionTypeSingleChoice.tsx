@@ -1,11 +1,10 @@
 "use client";
 
-import { NextQuestionId, SingleChoiceQuestion } from "@/lib/types";
+import { SingleChoiceQuestion } from "@/lib/types";
 import useQuizStore from "@/store/quizStore";
 import Image from "next/image";
 import QuestionHeading from "./QuestionHeading";
-import { notFound, useRouter } from "next/navigation";
-import { computeNextQuestionId } from "@/lib/quizService";
+import { useQuizNav } from "@/lib/hooks";
 
 type QuestionTypeSingleChoiceProps = {
   question: SingleChoiceQuestion;
@@ -15,20 +14,14 @@ export default function QuestionTypeSingleChoice({
 }: QuestionTypeSingleChoiceProps) {
   const answers = useQuizStore((store) => store.answers);
   const setAnswers = useQuizStore((store) => store.setAnswers);
-  const router = useRouter();
-  const quizData = useQuizStore((store) => store.quizData);
-
-  if (!quizData) notFound();
+  const { goToNextQuestion } = useQuizNav(question.id);
 
   const currentAnswerInStore = answers[question.id];
 
   const handleOnClick = (optionValue: string) => {
     setAnswers(question.id, optionValue);
 
-    const updatedAnswers = useQuizStore.getState().answers;
-    const nextId = computeNextQuestionId(quizData, updatedAnswers, question.id);
-
-    router.push(`/quiz/${nextId}`);
+    goToNextQuestion();
   };
 
   return (

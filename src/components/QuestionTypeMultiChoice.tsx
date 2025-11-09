@@ -5,8 +5,7 @@ import useQuizStore from "@/store/quizStore";
 import QuestionHeading from "./QuestionHeading";
 import Image from "next/image";
 import Button from "./Button";
-import { notFound, useRouter } from "next/navigation";
-import { computeNextQuestionId } from "@/lib/quizService";
+import { useQuizNav } from "@/lib/hooks";
 
 type QuestionTypeMultiChoiceProps = {
   question: MultiChoiceQuestion;
@@ -16,13 +15,9 @@ export default function QuestionTypeMultiChoice({
 }: QuestionTypeMultiChoiceProps) {
   const answers = useQuizStore((store) => store.answers);
   const setAnswers = useQuizStore((store) => store.setAnswers);
-  const quizData = useQuizStore((store) => store.quizData);
-
-  if (!quizData) notFound();
+  const { goToNextQuestion } = useQuizNav(question.id);
 
   const currentAnswerInStore = answers[question.id];
-
-  const router = useRouter();
 
   const selected = Array.isArray(currentAnswerInStore)
     ? currentAnswerInStore
@@ -36,8 +31,7 @@ export default function QuestionTypeMultiChoice({
   };
 
   const handleOnClick = () => {
-    const nextId = computeNextQuestionId(quizData, answers, question.id);
-    router.push(`/quiz/${nextId}`);
+    goToNextQuestion();
   };
 
   return (
