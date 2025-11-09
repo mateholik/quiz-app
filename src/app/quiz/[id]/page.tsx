@@ -16,14 +16,6 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
     totalQuestions,
   } = useQuestion(id);
 
-  // console.log({
-  //   currentQuestion,
-  //   previousQuestionId,
-  //   nextQuestionId,
-  //   currentQuestionIndex,
-  //   totalQuestions,
-  // });
-
   if (!currentQuestion) notFound();
 
   return (

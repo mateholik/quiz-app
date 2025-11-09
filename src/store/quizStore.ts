@@ -1,29 +1,35 @@
 "use client";
 
-import { StoreAnswers } from "@/lib/types";
+import { Quiz, StoreAnswers } from "@/lib/types";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 type QuizStore = {
+  quizData: Quiz | null;
+  setQuizData: (data: Quiz) => void;
   answers: StoreAnswers;
   setAnswers: (questionId: string, value: string | string[] | number) => void;
-  reset: () => void;
+  resetAnswers: () => void;
 };
 
 export const useQuizStore = create<QuizStore>()(
   persist(
     (set) => ({
+      quizData: null,
+      setQuizData: (data) => set({ quizData: data }),
       answers: {},
       setAnswers: (questionId, value) =>
         set((store) => {
-          console.log("quizStore", 1, questionId, value);
           return {
             answers: { ...store.answers, [questionId]: value },
           };
         }),
-      reset: () => set({ answers: {} }),
+      resetAnswers: () => set({ answers: {} }),
     }),
-    { name: "quiz-answers" }, // key in localStorage
+    {
+      name: "quiz-answers",
+      partialize: (store) => ({ answers: store.answers }),
+    },
   ),
 );
 

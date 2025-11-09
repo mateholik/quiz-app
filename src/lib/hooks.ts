@@ -1,9 +1,13 @@
 import quizData from "@/data/quiz.json";
 import { Quiz, Question, NextQuestionId } from "@/lib/types";
-
-import { isVisible } from "@/lib/utils";
 import useQuizStore from "@/store/quizStore";
-import { SPECIAL_ROUTE_IDS } from "./consts";
+
+import {
+  getCurrentQuestion,
+  getNextQuestionId,
+  getPreviousQuestionId,
+  getVisibleQuestions,
+} from "./quizService";
 
 type UseQuestionResult = {
   currentQuestion: Question | null;
@@ -12,38 +16,27 @@ type UseQuestionResult = {
   currentQuestionIndex: number;
   totalQuestions: number;
 };
+const data = quizData as Quiz;
 
 export function useQuestion(id: string): UseQuestionResult {
-  const data = quizData as Quiz;
   const answers = useQuizStore((store) => store.answers);
 
-  const visibleQuestions = data.questions.filter((question) =>
-    isVisible(question, answers),
+  const visibleQuestions = getVisibleQuestions(data, answers);
+
+  const { currentQuestion, currentQuestionIndex } = getCurrentQuestion(
+    visibleQuestions,
+    id,
   );
 
-  console.log("answers", 3, answers);
-  console.log(
-    "visibleQuestions",
-    4,
-    visibleQuestions.map((q) => q.id),
+  const previousQuestionId = getPreviousQuestionId(
+    visibleQuestions,
+    currentQuestionIndex,
   );
 
-  const currentQuestionIndex = visibleQuestions.findIndex(
-    (question) => question.id === id,
+  const nextQuestionId = getNextQuestionId(
+    visibleQuestions,
+    currentQuestionIndex,
   );
-
-  const currentQuestion =
-    currentQuestionIndex === -1 ? null : visibleQuestions[currentQuestionIndex];
-
-  const previousQuestionId =
-    currentQuestionIndex > 0
-      ? visibleQuestions[currentQuestionIndex - 1].id
-      : null;
-
-  const nextQuestionId =
-    currentQuestionIndex < visibleQuestions.length - 1
-      ? visibleQuestions[currentQuestionIndex + 1].id
-      : SPECIAL_ROUTE_IDS.LOADING;
 
   return {
     currentQuestion,

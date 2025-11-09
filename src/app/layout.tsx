@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./../styles/globals.css";
 
+import data from "@/data/quiz.json";
+import { Quiz } from "@/lib/types";
+import InitializeQuizStore from "@/components/InitializeQuizStore";
+
+const quizData = data as Quiz;
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,6 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <InitializeQuizStore quizData={quizData} />
         {children}
       </body>
     </html>

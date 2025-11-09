@@ -1,14 +1,5 @@
-import { getData } from "@/lib/utils";
-import Link from "next/link";
+import SectionBeginQuiz from "@/components/SectionBeginQuiz";
 
-export default async function Home() {
-  const data = await getData();
-  const firstQuestionId = data.questions[0].id;
-
-  return (
-    <div>
-      <h1>First Question ID: {firstQuestionId}</h1>
-      <Link href={`/quiz/${firstQuestionId}`}>Start Quiz</Link>
-    </div>
-  );
+export default function Home() {
+  return <SectionBeginQuiz />;
 }
