@@ -16,6 +16,14 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
     totalQuestions,
   } = useQuestion(id);
 
+  // console.log({
+  //   currentQuestion,
+  //   previousQuestionId,
+  //   nextQuestionId,
+  //   currentQuestionIndex,
+  //   totalQuestions,
+  // });
+
   if (!currentQuestion) notFound();
 
   return (
@@ -27,7 +35,10 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
         totalQuestions={totalQuestions}
       />
       <div className="container mx-auto px-4">
-        <QuestionTypesRenderer question={currentQuestion} />
+        <QuestionTypesRenderer
+          question={currentQuestion}
+          nextQuestionId={nextQuestionId}
+        />
       </div>
     </>
   );

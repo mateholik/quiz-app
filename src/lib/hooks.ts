@@ -1,23 +1,31 @@
 import quizData from "@/data/quiz.json";
-import { Quiz, Question } from "@/lib/types";
+import { Quiz, Question, NextQuestionId } from "@/lib/types";
 
 import { isVisible } from "@/lib/utils";
 import useQuizStore from "@/store/quizStore";
+import { SPECIAL_ROUTE_IDS } from "./consts";
 
 type UseQuestionResult = {
   currentQuestion: Question | null;
   previousQuestionId: string | null;
-  nextQuestionId: string | null;
+  nextQuestionId: NextQuestionId;
   currentQuestionIndex: number;
   totalQuestions: number;
 };
-const data = quizData as Quiz;
 
 export function useQuestion(id: string): UseQuestionResult {
+  const data = quizData as Quiz;
   const answers = useQuizStore((store) => store.answers);
 
   const visibleQuestions = data.questions.filter((question) =>
     isVisible(question, answers),
+  );
+
+  console.log("answers", 3, answers);
+  console.log(
+    "visibleQuestions",
+    4,
+    visibleQuestions.map((q) => q.id),
   );
 
   const currentQuestionIndex = visibleQuestions.findIndex(
@@ -35,7 +43,7 @@ export function useQuestion(id: string): UseQuestionResult {
   const nextQuestionId =
     currentQuestionIndex < visibleQuestions.length - 1
       ? visibleQuestions[currentQuestionIndex + 1].id
-      : null;
+      : SPECIAL_ROUTE_IDS.LOADING;
 
   return {
     currentQuestion,

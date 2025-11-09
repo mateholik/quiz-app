@@ -3,7 +3,6 @@ import Link from "next/link";
 
 export default async function Home() {
   const data = await getData();
-  console.log(data.questions[0].id);
   const firstQuestionId = data.questions[0].id;
 
   return (

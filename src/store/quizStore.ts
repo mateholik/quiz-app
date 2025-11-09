@@ -16,7 +16,7 @@ export const useQuizStore = create<QuizStore>()(
       answers: {},
       setAnswers: (questionId, value) =>
         set((store) => {
-          console.log(questionId, value);
+          console.log("quizStore", 1, questionId, value);
           return {
             answers: { ...store.answers, [questionId]: value },
           };

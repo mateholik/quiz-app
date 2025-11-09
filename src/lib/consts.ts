@@ -5,4 +5,6 @@ export const QUESTION_TYPES = {
   INPUT: "input",
 } as const;
 
-export type QuestionType = (typeof QUESTION_TYPES)[keyof typeof QUESTION_TYPES];
+export const SPECIAL_ROUTE_IDS = {
+  LOADING: "loading",
+} as const;

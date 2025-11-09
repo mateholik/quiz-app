@@ -1,17 +1,25 @@
-import { MultiChoiceQuestion } from "@/lib/types";
+"use client";
+
+import { MultiChoiceQuestion, NextQuestionId } from "@/lib/types";
 import useQuizStore from "@/store/quizStore";
 import QuestionHeading from "./QuestionHeading";
 import Image from "next/image";
+import Button from "./Button";
+import { useRouter } from "next/navigation";
 
 type QuestionTypeMultiChoiceProps = {
   question: MultiChoiceQuestion;
+  nextQuestionId: NextQuestionId;
 };
 export default function QuestionTypeMultiChoice({
   question,
+  nextQuestionId,
 }: QuestionTypeMultiChoiceProps) {
   const answers = useQuizStore((store) => store.answers);
   const setAnswers = useQuizStore((store) => store.setAnswers);
   const currentAnswerInStore = answers[question.id];
+
+  const router = useRouter();
 
   const selected = Array.isArray(currentAnswerInStore)
     ? currentAnswerInStore
@@ -22,6 +30,10 @@ export default function QuestionTypeMultiChoice({
       ? selected.filter((v) => v !== value)
       : [...selected, value];
     setAnswers(question.id, updatedAnswers);
+  };
+
+  const handleOnClick = () => {
+    router.push(nextQuestionId);
   };
 
   return (
@@ -52,6 +64,8 @@ export default function QuestionTypeMultiChoice({
           </button>
         ))}
       </div>
+
+      <Button handleOnClick={handleOnClick}>Continue</Button>
     </section>
   );
 }

@@ -1,5 +1,5 @@
-import { HTMLInputTypeAttribute } from "react";
-import { QUESTION_TYPES } from "./consts";
+import { HTMLInputTypeAttribute, InputHTMLAttributes } from "react";
+import { QUESTION_TYPES, SPECIAL_ROUTE_IDS } from "./consts";
 
 export type Quiz = {
   id: string;
@@ -37,6 +37,7 @@ export type InputQuestion = QuestionBase & {
   type: typeof QUESTION_TYPES.INPUT;
   placeholder?: string;
   inputType: HTMLInputTypeAttribute;
+  validation?: InputValidation;
 };
 
 export type Question =
@@ -51,9 +52,16 @@ export type Answer = {
   imageUrl?: string;
 };
 
-export type QuestionType = (typeof QUESTION_TYPES)[keyof typeof QUESTION_TYPES];
-
 export type StoreAnswers = Record<
   string,
   string | string[] | number | undefined
 >;
+
+export type InputValidation = Partial<
+  Pick<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    "min" | "max" | "required" | "pattern" | "step"
+  >
+>;
+
+export type NextQuestionId = string | typeof SPECIAL_ROUTE_IDS.LOADING;

@@ -21,6 +21,7 @@ export default function QuestionTypeInput({
         onChange={(e) => setAnswers(question.id, Number(e.target.value))}
         className="w-full rounded-lg border p-3"
         placeholder={question.placeholder || "Enter a value"}
+        {...question.validation}
       />
     </section>
   );

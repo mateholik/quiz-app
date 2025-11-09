@@ -223,7 +223,8 @@
       "type": "input",
       "title": "How young are you?",
       "inputType": "number",
-      "placeholder": "Age"
+      "placeholder": "Age",
+      "validation": { "min": 0, "max": 12 }
     }
   ]
 }
