@@ -4,9 +4,9 @@ import "./../styles/globals.css";
 
 import data from "@/data/quiz.json";
 import { Quiz } from "@/lib/types";
-import InitializeQuizStore from "@/components/InitializeQuizStore";
+import { QuizStoreProvider } from "@/store/QuizStoreProvider";
 
-const quizData = data as Quiz;
+const quizData = data as Quiz | null;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +33,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <InitializeQuizStore quizData={quizData} />
+        {/* <InitializeQuizStore quizData={quizData} /> */}
         <div className="bg-blue-200 p-4">APP header</div>
-        {children}
+        {quizData ? (
+          <QuizStoreProvider initialData={quizData}>
+            {children}
+          </QuizStoreProvider>
+        ) : (
+          <div>no data</div>
+        )}
+
         <div className="bg-blue-200 p-4">APP footer</div>
       </body>
     </html>

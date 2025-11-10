@@ -1,7 +1,10 @@
 "use client";
 
 import { Question, Quiz } from "@/lib/types";
-import useQuizStore from "@/store/quizStore";
+import {
+  useQuizStoreApi,
+  useQuizStoreContext,
+} from "@/store/QuizStoreProvider";
 import { useRouter } from "next/navigation";
 
 import {
@@ -19,7 +22,7 @@ type UseQuestionResult = {
 };
 
 export function useQuestion(id: string, quizData: Quiz): UseQuestionResult {
-  const answers = useQuizStore((store) => store.answers);
+  const answers = useQuizStoreContext((store) => store.answers);
 
   const visibleQuestions = getVisibleQuestions(quizData, answers);
 
@@ -47,7 +50,8 @@ type UseQuizNavResult = {
 
 export function useQuizNav(questionId: string): UseQuizNavResult {
   const router = useRouter();
-  const quizData = useQuizStore((store) => store.quizData);
+  const quizData = useQuizStoreContext((store) => store.quizData);
+  const quizStore = useQuizStoreApi();
 
   const goToNextQuestion = () => {
     if (!quizData) {
@@ -55,7 +59,7 @@ export function useQuizNav(questionId: string): UseQuizNavResult {
       return;
     }
 
-    const updatedAnswers = useQuizStore.getState().answers;
+    const updatedAnswers = quizStore.getState().answers; // ✅ valid
     const nextId = computeNextQuestionId(quizData, updatedAnswers, questionId);
 
     router.push(`/quiz/${nextId}`);

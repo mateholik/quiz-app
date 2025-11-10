@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import useQuizStore from "@/store/quizStore";
+import { useQuizStoreContext } from "@/store/QuizStoreProvider";
 
 export default function Page() {
-  const answers = useQuizStore((store) => store.answers);
+  const answers = useQuizStoreContext((store) => store.answers);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

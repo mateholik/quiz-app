@@ -1,7 +1,7 @@
 "use client";
 
 import { InputQuestion } from "@/lib/types";
-import useQuizStore from "@/store/quizStore";
+import { useQuizStoreContext } from "@/store/QuizStoreProvider";
 import QuestionHeading from "./QuestionHeading";
 import ButtonCta from "./ButtonCta";
 import { ChangeEvent, useRef } from "react";
@@ -13,8 +13,8 @@ type QuestionTypeInputProps = {
 export default function QuestionTypeInput({
   question,
 }: QuestionTypeInputProps) {
-  const answers = useQuizStore((store) => store.answers);
-  const setAnswers = useQuizStore((store) => store.setAnswers);
+  const answers = useQuizStoreContext((store) => store.answers);
+  const setAnswers = useQuizStoreContext((store) => store.setAnswers);
   const inputRef = useRef<HTMLInputElement>(null);
   const { goToNextQuestion } = useQuizNav(question.id);
 

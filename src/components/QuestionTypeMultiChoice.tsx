@@ -1,7 +1,7 @@
 "use client";
 
 import { MultiChoiceQuestion } from "@/lib/types";
-import useQuizStore from "@/store/quizStore";
+import { useQuizStoreContext } from "@/store/QuizStoreProvider";
 import QuestionHeading from "./QuestionHeading";
 import Image from "next/image";
 import ButtonCta from "./ButtonCta";
@@ -14,8 +14,8 @@ type QuestionTypeMultiChoiceProps = {
 export default function QuestionTypeMultiChoice({
   question,
 }: QuestionTypeMultiChoiceProps) {
-  const answers = useQuizStore((store) => store.answers);
-  const setAnswers = useQuizStore((store) => store.setAnswers);
+  const answers = useQuizStoreContext((store) => store.answers);
+  const setAnswers = useQuizStoreContext((store) => store.setAnswers);
   const { goToNextQuestion } = useQuizNav(question.id);
 
   const currentAnswerInStore = answers[question.id];

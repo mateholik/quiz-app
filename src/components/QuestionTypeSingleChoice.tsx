@@ -1,7 +1,7 @@
 "use client";
 
 import { SingleChoiceQuestion } from "@/lib/types";
-import useQuizStore from "@/store/quizStore";
+import { useQuizStoreContext } from "@/store/QuizStoreProvider";
 import Image from "next/image";
 import QuestionHeading from "./QuestionHeading";
 import { useQuizNav } from "@/lib/hooks";
@@ -13,8 +13,8 @@ type QuestionTypeSingleChoiceProps = {
 export default function QuestionTypeSingleChoice({
   question,
 }: QuestionTypeSingleChoiceProps) {
-  const answers = useQuizStore((store) => store.answers);
-  const setAnswers = useQuizStore((store) => store.setAnswers);
+  const answers = useQuizStoreContext((store) => store.answers);
+  const setAnswers = useQuizStoreContext((store) => store.setAnswers);
   const { goToNextQuestion } = useQuizNav(question.id);
 
   const currentAnswerInStore = answers[question.id];

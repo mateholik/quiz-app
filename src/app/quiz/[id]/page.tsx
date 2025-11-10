@@ -4,13 +4,11 @@ import QuestionTypesRenderer from "@/components/QuestionTypesRenderer";
 import { useQuestion } from "@/lib/hooks";
 import { use } from "react";
 import QuestionHeader from "@/components/QuestionHeader";
-import useQuizStore from "@/store/quizStore";
+import { useQuizStoreContext } from "@/store/QuizStoreProvider";
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
-  const quizData = useQuizStore((store) => store.quizData);
-
-  if (!quizData) throw new Error("Error loading quizData2");
+  const quizData = useQuizStoreContext((store) => store.quizData);
 
   const {
     currentQuestion,

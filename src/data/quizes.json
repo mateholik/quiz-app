@@ -1,0 +1,722 @@
+[
+  {
+    "id": "fit-you1",
+    "title": "Get back in shape.1",
+    "description": "Help us understand your fitness goals",
+    "imageUrl": "/question-images/Illustration.png",
+    "ctaText": "Start The Quiz",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "single_choice",
+        "title": "What is your primary goal?1",
+        "options": [
+          { "value": "lose_weight", "label": "Lose weight" },
+          {
+            "value": "improve_specific_body_areas",
+            "label": "Improve specific body areas"
+          },
+          { "value": "gain_muscle", "label": "Gain Muscle" },
+          {
+            "value": "develop_healthy_habits",
+            "label": "Develop Healthy Habits"
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "type": "multi_choice",
+        "title": "Select body areas you would like to improve:",
+        "text": "Select all that apply.",
+        "options": [
+          {
+            "value": "breast_form",
+            "label": "Breast form",
+            "imageUrl": "/question-images/breast.png"
+          },
+          {
+            "value": "arms",
+            "label": "Arms",
+            "imageUrl": "/question-images/arms.png"
+          },
+          {
+            "value": "belly",
+            "label": "Belly",
+            "imageUrl": "/question-images/belly.png"
+          },
+          {
+            "value": "buttocks",
+            "label": "Buttocks",
+            "imageUrl": "/question-images/buttocks.png"
+          },
+          {
+            "value": "legs_and_thighs",
+            "label": "Legs and Thighs",
+            "imageUrl": "/question-images/legs.png"
+          }
+        ],
+        "visibleIf": [
+          { "questionId": "q1", "equals": "improve_specific_body_areas" }
+        ]
+      },
+      {
+        "id": "q3",
+        "type": "single_choice",
+        "title": "Do you suffer from back pain?",
+        "options": [
+          { "value": "no", "label": "No" },
+          { "value": "yes", "label": "Yes" }
+        ]
+      },
+      {
+        "id": "q4",
+        "type": "multi_choice",
+        "title": "Concerns you have faced after pregnancy:",
+        "text": "Select all that apply.",
+        "options": [
+          {
+            "value": "anxiety_or_depression",
+            "label": "Anxiety or depression"
+          },
+          {
+            "value": "face_skin_problems",
+            "label": "Face skin problems"
+          },
+          {
+            "value": "weak_hair_or_hair_loss",
+            "label": "Weak hair or hair loss"
+          },
+          {
+            "value": "weak_nails",
+            "label": "Weak nails"
+          },
+          {
+            "value": "loose_skin_or_strech_marks",
+            "label": "Loose skin or strech marks"
+          }
+        ]
+      },
+      {
+        "id": "q5",
+        "type": "single_choice",
+        "title": "How do you feel about excercising with your baby?",
+        "options": [
+          { "value": "i_would_love_to", "label": "I would love to!" },
+          { "value": "i_would_like_to_try", "label": "I would like to try" },
+          { "value": "i_am_better_on_my_own", "label": "I am better on my own" }
+        ],
+        "visibleIf": [
+          { "questionId": "q4", "equals": "anxiety_or_depression" },
+          { "questionId": "q4", "equals": "loose_skin_or_strech_marks" }
+        ]
+      },
+      {
+        "id": "q6",
+        "type": "single_choice",
+        "title": "Do you suffer from DIASTASIS RECTI ?",
+        "text": "Diastasis recti is the partial or complete separation of the rectus abdominis, or “six-pack” muscles, which meet at the midline of your stomach.",
+        "options": [
+          {
+            "value": "yes",
+            "label": "Yes",
+            "imageUrl": "/question-images/diastasis-normal.png"
+          },
+          {
+            "value": "no",
+            "label": "No",
+            "imageUrl": "/question-images/diastasis-open.png"
+          },
+          {
+            "value": "not_sure",
+            "label": "Not sure"
+          }
+        ]
+      },
+      {
+        "id": "q7",
+        "type": "multi_choice",
+        "title": "Select type of workouts you like:",
+        "text": "Select all that apply.",
+        "options": [
+          {
+            "value": "flexibility",
+            "label": "Flexibility",
+            "imageUrl": "/question-images/Flexibility.png"
+          },
+          {
+            "value": "aerobic",
+            "label": "Aerobic",
+            "imageUrl": "/question-images/Aerobic.png"
+          },
+          {
+            "value": "strength",
+            "label": "Strength",
+            "imageUrl": "/question-images/Strength.png"
+          },
+          {
+            "value": "others",
+            "label": "Others",
+            "imageUrl": "/question-images/Others.png"
+          },
+          {
+            "value": "i_dont_like_workouts",
+            "label": "I don’t like workouts",
+            "imageUrl": "/question-images/workouts.png"
+          }
+        ]
+      },
+      {
+        "id": "q8",
+        "type": "single_choice",
+        "title": "Are you currently breasfeeding?",
+        "text": "Diastasis recti is the partial or complete separation of the rectus abdominis, or “six-pack” muscles, which meet at the midline of your stomach.",
+        "options": [
+          { "value": "yes", "label": "Yes" },
+          { "value": "no", "label": "No" }
+        ]
+      },
+      {
+        "id": "q9",
+        "type": "info_section",
+        "title": "Did you know?",
+        "text": "Low impact exercises are completely safe during breastfeeding and do not affect the milk supply or taste.",
+        "imageUrl": "/question-images/feeding.jpg",
+        "bottomText": "Keep in mind that it only takes 15 minutes of focused daily physical activity to give long-lasting results. <br> Let’s continue with creating your personalized meal plan portfolio!"
+      },
+      {
+        "id": "q10",
+        "type": "multi_choice",
+        "title": "What foods is your breasfed baby sensitive to?",
+        "text": "Select all that apply.",
+        "options": [
+          {
+            "value": "lactose",
+            "label": "Lactose",
+            "imageUrl": "/question-images/milk.png"
+          },
+          {
+            "value": "eggs",
+            "label": "Eggs",
+            "imageUrl": "/question-images/egg.png"
+          },
+          {
+            "value": "nuts",
+            "label": "Nuts",
+            "imageUrl": "/question-images/nutts.png"
+          },
+          {
+            "value": "soy",
+            "label": "Soy",
+            "imageUrl": "/question-images/seedling.png"
+          },
+          {
+            "value": "gluten",
+            "label": "Gluten",
+            "imageUrl": "/question-images/croissant.png"
+          },
+          {
+            "value": "fish",
+            "label": "Fish",
+            "imageUrl": "/question-images/fish.png"
+          },
+          {
+            "value": "shellfish",
+            "label": "Shellfish",
+            "imageUrl": "/question-images/crab.png"
+          },
+          { "value": "none_of_the_above", "label": "None of the above" }
+        ]
+      },
+      {
+        "id": "q11",
+        "type": "input",
+        "title": "How young are you?",
+        "inputType": "number",
+        "placeholder": "Age",
+        "validation": { "min": 10, "max": 20, "required": true }
+      }
+    ]
+  },
+  {
+    "id": "fit-you2",
+    "title": "Get back in shape.2",
+    "description": "Help us understand your fitness goals",
+    "imageUrl": "/question-images/Illustration.png",
+    "ctaText": "Start The Quiz",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "single_choice",
+        "title": "What is your primary goal?2",
+        "options": [
+          { "value": "lose_weight", "label": "Lose weight" },
+          {
+            "value": "improve_specific_body_areas",
+            "label": "Improve specific body areas"
+          },
+          { "value": "gain_muscle", "label": "Gain Muscle" },
+          {
+            "value": "develop_healthy_habits",
+            "label": "Develop Healthy Habits"
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "type": "multi_choice",
+        "title": "Select body areas you would like to improve:",
+        "text": "Select all that apply.",
+        "options": [
+          {
+            "value": "breast_form",
+            "label": "Breast form",
+            "imageUrl": "/question-images/breast.png"
+          },
+          {
+            "value": "arms",
+            "label": "Arms",
+            "imageUrl": "/question-images/arms.png"
+          },
+          {
+            "value": "belly",
+            "label": "Belly",
+            "imageUrl": "/question-images/belly.png"
+          },
+          {
+            "value": "buttocks",
+            "label": "Buttocks",
+            "imageUrl": "/question-images/buttocks.png"
+          },
+          {
+            "value": "legs_and_thighs",
+            "label": "Legs and Thighs",
+            "imageUrl": "/question-images/legs.png"
+          }
+        ],
+        "visibleIf": [
+          { "questionId": "q1", "equals": "improve_specific_body_areas" }
+        ]
+      },
+      {
+        "id": "q3",
+        "type": "single_choice",
+        "title": "Do you suffer from back pain?",
+        "options": [
+          { "value": "no", "label": "No" },
+          { "value": "yes", "label": "Yes" }
+        ]
+      },
+      {
+        "id": "q4",
+        "type": "multi_choice",
+        "title": "Concerns you have faced after pregnancy:",
+        "text": "Select all that apply.",
+        "options": [
+          {
+            "value": "anxiety_or_depression",
+            "label": "Anxiety or depression"
+          },
+          {
+            "value": "face_skin_problems",
+            "label": "Face skin problems"
+          },
+          {
+            "value": "weak_hair_or_hair_loss",
+            "label": "Weak hair or hair loss"
+          },
+          {
+            "value": "weak_nails",
+            "label": "Weak nails"
+          },
+          {
+            "value": "loose_skin_or_strech_marks",
+            "label": "Loose skin or strech marks"
+          }
+        ]
+      },
+      {
+        "id": "q5",
+        "type": "single_choice",
+        "title": "How do you feel about excercising with your baby?",
+        "options": [
+          { "value": "i_would_love_to", "label": "I would love to!" },
+          { "value": "i_would_like_to_try", "label": "I would like to try" },
+          {
+            "value": "i_am_better_on_my_own",
+            "label": "I am better on my own"
+          }
+        ],
+        "visibleIf": [
+          { "questionId": "q4", "equals": "anxiety_or_depression" },
+          { "questionId": "q4", "equals": "loose_skin_or_strech_marks" }
+        ]
+      },
+      {
+        "id": "q6",
+        "type": "single_choice",
+        "title": "Do you suffer from DIASTASIS RECTI ?",
+        "text": "Diastasis recti is the partial or complete separation of the rectus abdominis, or “six-pack” muscles, which meet at the midline of your stomach.",
+        "options": [
+          {
+            "value": "yes",
+            "label": "Yes",
+            "imageUrl": "/question-images/diastasis-normal.png"
+          },
+          {
+            "value": "no",
+            "label": "No",
+            "imageUrl": "/question-images/diastasis-open.png"
+          },
+          {
+            "value": "not_sure",
+            "label": "Not sure"
+          }
+        ]
+      },
+      {
+        "id": "q7",
+        "type": "multi_choice",
+        "title": "Select type of workouts you like:",
+        "text": "Select all that apply.",
+        "options": [
+          {
+            "value": "flexibility",
+            "label": "Flexibility",
+            "imageUrl": "/question-images/Flexibility.png"
+          },
+          {
+            "value": "aerobic",
+            "label": "Aerobic",
+            "imageUrl": "/question-images/Aerobic.png"
+          },
+          {
+            "value": "strength",
+            "label": "Strength",
+            "imageUrl": "/question-images/Strength.png"
+          },
+          {
+            "value": "others",
+            "label": "Others",
+            "imageUrl": "/question-images/Others.png"
+          },
+          {
+            "value": "i_dont_like_workouts",
+            "label": "I don’t like workouts",
+            "imageUrl": "/question-images/workouts.png"
+          }
+        ]
+      },
+      {
+        "id": "q8",
+        "type": "single_choice",
+        "title": "Are you currently breasfeeding?",
+        "text": "Diastasis recti is the partial or complete separation of the rectus abdominis, or “six-pack” muscles, which meet at the midline of your stomach.",
+        "options": [
+          { "value": "yes", "label": "Yes" },
+          { "value": "no", "label": "No" }
+        ]
+      },
+      {
+        "id": "q9",
+        "type": "info_section",
+        "title": "Did you know?",
+        "text": "Low impact exercises are completely safe during breastfeeding and do not affect the milk supply or taste.",
+        "imageUrl": "/question-images/feeding.jpg",
+        "bottomText": "Keep in mind that it only takes 15 minutes of focused daily physical activity to give long-lasting results. <br> Let’s continue with creating your personalized meal plan portfolio!"
+      },
+      {
+        "id": "q10",
+        "type": "multi_choice",
+        "title": "What foods is your breasfed baby sensitive to?",
+        "text": "Select all that apply.",
+        "options": [
+          {
+            "value": "lactose",
+            "label": "Lactose",
+            "imageUrl": "/question-images/milk.png"
+          },
+          {
+            "value": "eggs",
+            "label": "Eggs",
+            "imageUrl": "/question-images/egg.png"
+          },
+          {
+            "value": "nuts",
+            "label": "Nuts",
+            "imageUrl": "/question-images/nutts.png"
+          },
+          {
+            "value": "soy",
+            "label": "Soy",
+            "imageUrl": "/question-images/seedling.png"
+          },
+          {
+            "value": "gluten",
+            "label": "Gluten",
+            "imageUrl": "/question-images/croissant.png"
+          },
+          {
+            "value": "fish",
+            "label": "Fish",
+            "imageUrl": "/question-images/fish.png"
+          },
+          {
+            "value": "shellfish",
+            "label": "Shellfish",
+            "imageUrl": "/question-images/crab.png"
+          },
+          { "value": "none_of_the_above", "label": "None of the above" }
+        ]
+      },
+      {
+        "id": "q11",
+        "type": "input",
+        "title": "How young are you?",
+        "inputType": "number",
+        "placeholder": "Age",
+        "validation": { "min": 10, "max": 20, "required": true }
+      }
+    ]
+  },
+  {
+    "id": "fit-you3",
+    "title": "Get back in shape.3",
+    "description": "Help us understand your fitness goals",
+    "imageUrl": "/question-images/Illustration.png",
+    "ctaText": "Start The Quiz",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "single_choice",
+        "title": "What is your primary goal?3",
+        "options": [
+          { "value": "lose_weight", "label": "Lose weight" },
+          {
+            "value": "improve_specific_body_areas",
+            "label": "Improve specific body areas"
+          },
+          { "value": "gain_muscle", "label": "Gain Muscle" },
+          {
+            "value": "develop_healthy_habits",
+            "label": "Develop Healthy Habits"
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "type": "multi_choice",
+        "title": "Select body areas you would like to improve:",
+        "text": "Select all that apply.",
+        "options": [
+          {
+            "value": "breast_form",
+            "label": "Breast form",
+            "imageUrl": "/question-images/breast.png"
+          },
+          {
+            "value": "arms",
+            "label": "Arms",
+            "imageUrl": "/question-images/arms.png"
+          },
+          {
+            "value": "belly",
+            "label": "Belly",
+            "imageUrl": "/question-images/belly.png"
+          },
+          {
+            "value": "buttocks",
+            "label": "Buttocks",
+            "imageUrl": "/question-images/buttocks.png"
+          },
+          {
+            "value": "legs_and_thighs",
+            "label": "Legs and Thighs",
+            "imageUrl": "/question-images/legs.png"
+          }
+        ],
+        "visibleIf": [
+          { "questionId": "q1", "equals": "improve_specific_body_areas" }
+        ]
+      },
+      {
+        "id": "q3",
+        "type": "single_choice",
+        "title": "Do you suffer from back pain?",
+        "options": [
+          { "value": "no", "label": "No" },
+          { "value": "yes", "label": "Yes" }
+        ]
+      },
+      {
+        "id": "q4",
+        "type": "multi_choice",
+        "title": "Concerns you have faced after pregnancy:",
+        "text": "Select all that apply.",
+        "options": [
+          {
+            "value": "anxiety_or_depression",
+            "label": "Anxiety or depression"
+          },
+          {
+            "value": "face_skin_problems",
+            "label": "Face skin problems"
+          },
+          {
+            "value": "weak_hair_or_hair_loss",
+            "label": "Weak hair or hair loss"
+          },
+          {
+            "value": "weak_nails",
+            "label": "Weak nails"
+          },
+          {
+            "value": "loose_skin_or_strech_marks",
+            "label": "Loose skin or strech marks"
+          }
+        ]
+      },
+      {
+        "id": "q5",
+        "type": "single_choice",
+        "title": "How do you feel about excercising with your baby?",
+        "options": [
+          { "value": "i_would_love_to", "label": "I would love to!" },
+          { "value": "i_would_like_to_try", "label": "I would like to try" },
+          {
+            "value": "i_am_better_on_my_own",
+            "label": "I am better on my own"
+          }
+        ],
+        "visibleIf": [
+          { "questionId": "q4", "equals": "anxiety_or_depression" },
+          { "questionId": "q4", "equals": "loose_skin_or_strech_marks" }
+        ]
+      },
+      {
+        "id": "q6",
+        "type": "single_choice",
+        "title": "Do you suffer from DIASTASIS RECTI ?",
+        "text": "Diastasis recti is the partial or complete separation of the rectus abdominis, or “six-pack” muscles, which meet at the midline of your stomach.",
+        "options": [
+          {
+            "value": "yes",
+            "label": "Yes",
+            "imageUrl": "/question-images/diastasis-normal.png"
+          },
+          {
+            "value": "no",
+            "label": "No",
+            "imageUrl": "/question-images/diastasis-open.png"
+          },
+          {
+            "value": "not_sure",
+            "label": "Not sure"
+          }
+        ]
+      },
+      {
+        "id": "q7",
+        "type": "multi_choice",
+        "title": "Select type of workouts you like:",
+        "text": "Select all that apply.",
+        "options": [
+          {
+            "value": "flexibility",
+            "label": "Flexibility",
+            "imageUrl": "/question-images/Flexibility.png"
+          },
+          {
+            "value": "aerobic",
+            "label": "Aerobic",
+            "imageUrl": "/question-images/Aerobic.png"
+          },
+          {
+            "value": "strength",
+            "label": "Strength",
+            "imageUrl": "/question-images/Strength.png"
+          },
+          {
+            "value": "others",
+            "label": "Others",
+            "imageUrl": "/question-images/Others.png"
+          },
+          {
+            "value": "i_dont_like_workouts",
+            "label": "I don’t like workouts",
+            "imageUrl": "/question-images/workouts.png"
+          }
+        ]
+      },
+      {
+        "id": "q8",
+        "type": "single_choice",
+        "title": "Are you currently breasfeeding?",
+        "text": "Diastasis recti is the partial or complete separation of the rectus abdominis, or “six-pack” muscles, which meet at the midline of your stomach.",
+        "options": [
+          { "value": "yes", "label": "Yes" },
+          { "value": "no", "label": "No" }
+        ]
+      },
+      {
+        "id": "q9",
+        "type": "info_section",
+        "title": "Did you know?",
+        "text": "Low impact exercises are completely safe during breastfeeding and do not affect the milk supply or taste.",
+        "imageUrl": "/question-images/feeding.jpg",
+        "bottomText": "Keep in mind that it only takes 15 minutes of focused daily physical activity to give long-lasting results. <br> Let’s continue with creating your personalized meal plan portfolio!"
+      },
+      {
+        "id": "q10",
+        "type": "multi_choice",
+        "title": "What foods is your breasfed baby sensitive to?",
+        "text": "Select all that apply.",
+        "options": [
+          {
+            "value": "lactose",
+            "label": "Lactose",
+            "imageUrl": "/question-images/milk.png"
+          },
+          {
+            "value": "eggs",
+            "label": "Eggs",
+            "imageUrl": "/question-images/egg.png"
+          },
+          {
+            "value": "nuts",
+            "label": "Nuts",
+            "imageUrl": "/question-images/nutts.png"
+          },
+          {
+            "value": "soy",
+            "label": "Soy",
+            "imageUrl": "/question-images/seedling.png"
+          },
+          {
+            "value": "gluten",
+            "label": "Gluten",
+            "imageUrl": "/question-images/croissant.png"
+          },
+          {
+            "value": "fish",
+            "label": "Fish",
+            "imageUrl": "/question-images/fish.png"
+          },
+          {
+            "value": "shellfish",
+            "label": "Shellfish",
+            "imageUrl": "/question-images/crab.png"
+          },
+          { "value": "none_of_the_above", "label": "None of the above" }
+        ]
+      },
+      {
+        "id": "q11",
+        "type": "input",
+        "title": "How young are you?",
+        "inputType": "number",
+        "placeholder": "Age",
+        "validation": { "min": 10, "max": 20, "required": true }
+      }
+    ]
+  }
+]

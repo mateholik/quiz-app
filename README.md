@@ -46,3 +46,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - QuestionTypesRenderer renders different templates for different question types.
 - To extend templates, add new type to QUESTION_TYPES consts, add type to types.ts, add new template, add template to QuestionTypesRenderer as new case.
 - useQuizNav responsible for correct navigation.
+
+## Usefull links:
+
+https://tkdodo.eu/blog/zustand-and-react-context - store pattern
