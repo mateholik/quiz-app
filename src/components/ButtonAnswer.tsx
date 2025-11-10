@@ -1,3 +1,5 @@
+"use client";
+
 type ButtonAnswerProps = {
   handleOnClick?: () => void;
   children: React.ReactNode;

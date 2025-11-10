@@ -1,4 +1,5 @@
 "use client";
+
 import { Quiz } from "@/lib/types";
 import useQuizStore from "@/store/quizStore";
 

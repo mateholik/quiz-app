@@ -46,7 +46,7 @@ export default function QuestionTypeInput({
           type={question.inputType || "text"}
           value={currentAnswerInStore ?? ""}
           onChange={handleOnChange}
-          className="w-full rounded-lg border p-4 focus-within:border focus-within:border-2 focus-within:border-[#AA00FF] focus:ring-0 focus:outline-none"
+          className="w-full rounded-lg border p-4 focus-within:border-2 focus-within:border-[#AA00FF] focus:ring-0 focus:outline-none"
           placeholder={question.placeholder || "Enter a value"}
           {...question.validation}
         />

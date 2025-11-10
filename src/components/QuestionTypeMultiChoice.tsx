@@ -7,7 +7,6 @@ import Image from "next/image";
 import ButtonCta from "./ButtonCta";
 import { useQuizNav } from "@/lib/hooks";
 import ButtonAnswer from "./ButtonAnswer";
-import { Span } from "next/dist/trace";
 
 type QuestionTypeMultiChoiceProps = {
   question: MultiChoiceQuestion;

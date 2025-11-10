@@ -1,3 +1,5 @@
+"use client";
+
 type ButtonCtaProps = {
   handleOnClick?: () => void;
   children: React.ReactNode;

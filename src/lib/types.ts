@@ -1,4 +1,3 @@
-import { HTMLInputTypeAttribute, InputHTMLAttributes } from "react";
 import { QUESTION_TYPES, SPECIAL_ROUTE_IDS } from "./consts";
 
 export type Quiz = {
@@ -36,7 +35,7 @@ export type InfoSection = QuestionBase & {
 export type InputQuestion = QuestionBase & {
   type: typeof QUESTION_TYPES.INPUT;
   placeholder?: string;
-  inputType: HTMLInputTypeAttribute;
+  inputType: React.HTMLInputTypeAttribute;
   validation?: InputValidation;
 };
 
