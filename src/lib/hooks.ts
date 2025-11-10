@@ -2,7 +2,7 @@
 
 import { Question, Quiz } from "@/lib/types";
 import useQuizStore from "@/store/quizStore";
-import { notFound, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import {
   getCurrentQuestion,
@@ -51,7 +51,8 @@ export function useQuizNav(questionId: string): UseQuizNavResult {
 
   const goToNextQuestion = () => {
     if (!quizData) {
-      notFound();
+      router.replace("/");
+      return;
     }
 
     const updatedAnswers = useQuizStore.getState().answers;

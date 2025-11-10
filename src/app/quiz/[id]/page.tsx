@@ -3,7 +3,6 @@
 import QuestionTypesRenderer from "@/components/QuestionTypesRenderer";
 import { useQuestion } from "@/lib/hooks";
 import { use } from "react";
-import { notFound } from "next/navigation";
 import QuestionHeader from "@/components/QuestionHeader";
 import useQuizStore from "@/store/quizStore";
 
@@ -11,7 +10,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const quizData = useQuizStore((store) => store.quizData);
 
-  if (!quizData) notFound();
+  if (!quizData) throw new Error("Error loading quizData2");
 
   const {
     currentQuestion,
@@ -20,7 +19,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
     totalQuestions,
   } = useQuestion(id, quizData);
 
-  if (!currentQuestion) notFound();
+  if (!currentQuestion) throw new Error("Error loading currentQuestion");
 
   return (
     <>

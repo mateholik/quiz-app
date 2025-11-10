@@ -34,7 +34,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <InitializeQuizStore quizData={quizData} />
+        <div className="bg-blue-200 p-4">APP header</div>
         {children}
+        <div className="bg-blue-200 p-4">APP footer</div>
       </body>
     </html>
   );

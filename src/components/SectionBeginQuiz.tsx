@@ -2,13 +2,13 @@
 
 import useQuizStore from "@/store/quizStore";
 
-import { notFound, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import ButtonCta from "./ButtonCta";
 import Image from "next/image";
 
 export default function SectionBeginQuiz() {
   const quizData = useQuizStore((store) => store.quizData);
-  if (!quizData) notFound();
+  if (!quizData) throw new Error("Quiz data not found");
 
   const router = useRouter();
 
