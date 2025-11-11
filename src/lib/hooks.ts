@@ -13,6 +13,7 @@ import {
   getVisibleQuestions,
   computeNextQuestionId,
 } from "./quizService";
+import { quizRoutes } from "./utils";
 
 type UseQuestionResult = {
   currentQuestion: Question | null;
@@ -55,14 +56,14 @@ export function useQuizNav(questionId: string): UseQuizNavResult {
 
   const goToNextQuestion = () => {
     if (!quizData) {
-      router.replace("/");
+      router.replace(quizRoutes.root(quizData));
       return;
     }
 
-    const updatedAnswers = quizStore.getState().answers; // ✅ valid
+    const updatedAnswers = quizStore.getState().answers;
     const nextId = computeNextQuestionId(quizData, updatedAnswers, questionId);
 
-    router.push(`/quiz/${nextId}`);
+    router.push(quizRoutes.question(quizData, nextId));
   };
 
   return { goToNextQuestion };

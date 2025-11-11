@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./../styles/globals.css";
-
-import data from "@/data/quiz.json";
-import { Quiz } from "@/lib/types";
-import { QuizStoreProvider } from "@/store/QuizStoreProvider";
-
-const quizData = data as Quiz | null;
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,17 +28,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <InitializeQuizStore quizData={quizData} /> */}
-        <div className="bg-blue-200 p-4">APP header</div>
-        {quizData ? (
-          <QuizStoreProvider initialData={quizData}>
-            {children}
-          </QuizStoreProvider>
-        ) : (
-          <div>no data</div>
-        )}
-
-        <div className="bg-blue-200 p-4">APP footer</div>
+        <div className="bg-blue-200 p-4">
+          <Link className="hover:underline" href="/">
+            Home
+          </Link>
+        </div>
+        {children}
+        <div className="bg-blue-200 p-4 text-center">&copy; vladis.lt</div>
       </body>
     </html>
   );

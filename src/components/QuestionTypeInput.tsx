@@ -21,7 +21,6 @@ export default function QuestionTypeInput({
   const currentAnswerInStore = answers[question.id];
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
-    "validateNativeForm";
     setAnswers(question.id, Number(event.target.value));
   };
 

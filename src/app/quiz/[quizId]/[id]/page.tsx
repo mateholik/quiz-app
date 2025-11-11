@@ -5,6 +5,7 @@ import { useQuestion } from "@/lib/hooks";
 import { use } from "react";
 import QuestionHeader from "@/components/QuestionHeader";
 import { useQuizStoreContext } from "@/store/QuizStoreProvider";
+import { quizRoutes } from "@/lib/utils";
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
@@ -22,7 +23,12 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   return (
     <>
       <QuestionHeader
-        previousQuestionId={previousQuestionId}
+        quizData={quizData}
+        previousQuestionLink={
+          previousQuestionId
+            ? quizRoutes.question(quizData, previousQuestionId)
+            : quizRoutes.root(quizData)
+        }
         currentQuestionIndex={currentQuestionIndex + 1}
         totalQuestions={totalQuestions}
       />

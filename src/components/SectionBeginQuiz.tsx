@@ -5,6 +5,7 @@ import { useQuizStoreContext } from "@/store/QuizStoreProvider";
 import { useRouter } from "next/navigation";
 import ButtonCta from "./ButtonCta";
 import Image from "next/image";
+import { quizRoutes } from "@/lib/utils";
 
 export default function SectionBeginQuiz() {
   const quizData = useQuizStoreContext((store) => store.quizData);
@@ -12,7 +13,7 @@ export default function SectionBeginQuiz() {
   const router = useRouter();
 
   const handleOnClick = () => {
-    router.push(`/quiz/${quizData.questions[0].id}`);
+    router.push(quizRoutes.firstQuestion(quizData));
   };
 
   return (
