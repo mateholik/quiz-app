@@ -13,6 +13,12 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    rules: {
+      // Allow <img> specifically for SVGs
+      "next/next/no-img-element": ["error", { ignorePattern: "\\.svg$" }],
+    },
+  },
 ]);
 
 export default eslintConfig;

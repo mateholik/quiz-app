@@ -34,6 +34,7 @@ export default function SectionBeginQuiz() {
           src={quizData.imageUrl}
           width={640}
           height={500}
+          preload
         />
       </div>
     </div>

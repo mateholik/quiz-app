@@ -2,12 +2,8 @@ import data from "@/data/quizes.json";
 import { Quiz } from "@/lib/types";
 import { quizRoutes } from "@/lib/utils";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 
-const quizesData = data as Quiz[] | null;
-
-// not sure how to handle this.it gives error: Next.js navigation API is not allowed to be used in Pages Router.
-if (!quizesData) notFound();
+const quizesData = data as Quiz[];
 
 export default function Home() {
   return (

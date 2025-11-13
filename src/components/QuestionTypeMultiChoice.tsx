@@ -60,7 +60,7 @@ export default function QuestionTypeMultiChoice({
             </span>
             <span className="size-6">
               {selected.includes(option.value) ? (
-                <Image
+                <img
                   src="/icons/check.svg"
                   alt="check"
                   width={24}

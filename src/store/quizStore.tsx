@@ -27,7 +27,7 @@ export function createQuizStore(initialData: Quiz) {
         resetAnswers: () => set({ answers: {} }),
       }),
       {
-        name: initialData.id,
+        name: `quiz-id_${initialData.id}`,
         storage: createJSONStorage(() => localStorage),
         partialize: (state) => ({ answers: state.answers }),
       },

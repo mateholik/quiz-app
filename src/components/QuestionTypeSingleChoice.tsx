@@ -49,7 +49,7 @@ export default function QuestionTypeSingleChoice({
               <span>{option.label}</span>
             </span>
             <span>
-              <Image
+              <img
                 src="/icons/arrow.svg"
                 alt="arrow"
                 width={24}

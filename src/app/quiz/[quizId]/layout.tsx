@@ -1,21 +1,21 @@
 import data from "@/data/quizes.json";
 import { Quiz } from "@/lib/types";
 import { QuizStoreProvider } from "@/store/QuizStoreProvider";
-import { use } from "react";
+import { notFound } from "next/navigation";
 
 const QuizesData = data as Quiz[];
 
-export default function Layout({
+export default async function Layout({
   children,
   params,
 }: {
   children: React.ReactNode;
   params: Promise<{ quizId: string }>;
 }) {
-  const { quizId } = use(params);
+  const { quizId } = await params;
 
   const quiz = QuizesData.find((quiz) => quiz.id === quizId);
-  if (!quiz) throw new Error("Quiz not found");
+  if (!quiz) notFound();
 
   return (
     <div>

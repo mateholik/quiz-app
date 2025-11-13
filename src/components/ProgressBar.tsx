@@ -1,3 +1,4 @@
+"use client";
 type ProgressBarProps = {
   currentQuestionIndex: number;
   totalQuestions: number;

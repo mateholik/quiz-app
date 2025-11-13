@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import ProgressBar from "./ProgressBar";
@@ -30,7 +31,7 @@ export default function QuestionHeader({
       <div className="container mx-auto flex h-full items-center justify-between px-4">
         <div className="flex h-full items-center space-x-8">
           <Link className="flex items-center" href={previousQuestionLink}>
-            <Image
+            <img
               src="/icons/chevron.svg"
               alt="Back"
               width={24}
@@ -39,9 +40,9 @@ export default function QuestionHeader({
             />
             <span className="font-semibold">Back</span>
           </Link>
-          <div onClick={handleReset} className="cursor-pointer text-red-700">
+          <button onClick={handleReset} className="cursor-pointer text-red-700">
             Reset quiz
-          </div>
+          </button>
         </div>
         <div>
           {currentQuestionIndex} of {totalQuestions}

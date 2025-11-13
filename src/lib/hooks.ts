@@ -55,11 +55,6 @@ export function useQuizNav(questionId: string): UseQuizNavResult {
   const quizStore = useQuizStoreApi();
 
   const goToNextQuestion = () => {
-    if (!quizData) {
-      router.replace(quizRoutes.root(quizData));
-      return;
-    }
-
     const updatedAnswers = quizStore.getState().answers;
     const nextId = computeNextQuestionId(quizData, updatedAnswers, questionId);
 
